@@ -1,0 +1,7 @@
+About Program 
+
+Definition of  Prim's algorithm
+
+Prim, is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. 
+It finds a tree of that graph which includes every vertex and the total weight of all the edges in the tree is less than or equal to every possible spanning tree. 
+Prim's algorithm is faster on dense graphs.
