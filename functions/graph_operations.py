@@ -35,7 +35,7 @@ def initialize_tree (starting_vertex):
     ''' Returns an array that is in a workable format for out other functions while ging us a starting point'''
     return (([starting_vertex],[]))
 
-
+    
 def min_cost_incident_edge(Graph,Tree):
     ''' Returns the edge with the minimum cost or shortest distance simple find the minimum in an array'''
 
