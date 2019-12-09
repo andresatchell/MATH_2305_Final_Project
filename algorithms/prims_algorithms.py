@@ -14,10 +14,11 @@ def Prims(Graph, Starting_point):
 
     while (len(Tree[0]) != len(Graph[0])):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
         avalible_paths = inceident_edgees(Graph, Tree)          
-    
+        print(avalible_paths)
         for path in avalible_paths:                                 #Checks all avalible plaths
     
              if ( path == min_cost_incident_edge(Graph, Tree) ):#    and (path not in ):     #Only allows for the smallest path to be taken and adds that path/edge to our working tree
+                #print (f'@@ {path}')
                 Tree[1].append(path)
                 
                 for edge in Tree[1]:                                #Runs through all edges in out woring tree 

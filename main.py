@@ -7,7 +7,7 @@ from functions.graph_operations import *
 os.system("cls") # used to clear the console on windows machines
 
 
-File = input(' Input name of filr that cotians the graph. :')
+File = input(' Input name of file that cotians the graph. :')
 
 
 
