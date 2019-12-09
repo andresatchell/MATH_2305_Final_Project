@@ -1,13 +1,12 @@
 from algorithms.prims_algorithms import Prims
-import numpy as np
-import os
 from functions.reading_writing_function import get_graph
 from functions.graph_operations import *
+import os
 
 os.system("cls") # used to clear the console on windows machines
 
 
-File = input(' Input name of file that cotians the graph. :')
+File = input(' Input name of file that contians the graph.(G1, G2, G3, or G4) :')
 
 
 
