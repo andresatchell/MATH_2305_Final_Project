@@ -5,9 +5,10 @@ import os
 
 os.system("cls") # used to clear the console on windows machines
 
-File = str(input(''' Input name of file that contians the graph, or use (G1, G2, G3, G4, or G5).txt: '''))
+File = str(input(''' Input name of file that contians the graph, or use (G1, G2, G3, G4, or G5). 
+ DO NOT add file extension. : '''))
 
-Graph = get_graph(File.upper()) 
+Graph = get_graph(File) 
 
 starting_point = int( input(f' {Graph[0]} \n Pick a vertex. :')) 
 

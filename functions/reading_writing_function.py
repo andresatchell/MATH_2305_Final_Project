@@ -2,7 +2,7 @@ import numpy as np
 
 def get_graph(textfile):
     
-    edgelist = np.loadtxt(f'data/{textfile}', dtype = int ) # Grabs data from the file abd converts it in to workable data.
+    edgelist = np.loadtxt(f'data/{textfile}.txt', dtype = int ) # Grabs data from the file abd converts it in to workable data.
 
     Graph = ([],{})
 
