@@ -23,6 +23,19 @@ def incident_edges (Graph, Tree):
                     #If there is a edge that is in the working tree that has two of the vertices in it then remove it,
                     #by doing so we remove the posibility of have a circle in out tree
                     del edges_in_tree[ edges_in_tree.index(edge) ]
+
+
+
+    #Ugly hot fix to a circle bug.
+    for edge in edges_in_tree:
+        for vertex_a in Tree[0]:
+            for vertex_b in Tree[0]:    
+                if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
+                    del edges_in_tree[ edges_in_tree.index(edge) ]
+
+
+
+
     return edges_in_tree
 
 
@@ -35,7 +48,7 @@ def initialize_tree (starting_vertex):
     ''' Returns an array that is in a workable format for out other functions while ging us a starting point'''
     return (([starting_vertex],[]))
 
-    
+
 def min_cost_incident_edge(Graph,Tree):
     ''' Returns the edge with the minimum cost or shortest distance simple find the minimum in an array'''
 
