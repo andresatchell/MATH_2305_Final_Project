@@ -6,35 +6,26 @@ def incident_edges (Graph, Tree):
 
     for edge in Graph[1]:
 
-        for vertex in Tree[0]:
+        for vertex_a in Tree[0]:
+            for vertex_b in Tree[0]:
 
-            if (vertex in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree):
-                edges_in_tree.append(edge)
+                if (vertex_a in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree):     # and (( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) != str(edge)   ))  :
+                    edges_in_tree.append(edge)
     
+    
+    
+        
     for edge in edges_in_tree:
 
         for vertex_a in Tree[0]:
 
-            for vertex_b in Tree[0]:    
+            for vertex_b in Tree[0]:
 
                 if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
-
 
                     #If there is a edge that is in the working tree that has two of the vertices in it then remove it,
                     #by doing so we remove the posibility of have a circle in out tree
                     del edges_in_tree[ edges_in_tree.index(edge) ]
-
-
-
-    #Ugly hot fix to a circle bug.
-    for edge in edges_in_tree:
-        for vertex_a in Tree[0]:
-            for vertex_b in Tree[0]:    
-                if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
-                    del edges_in_tree[ edges_in_tree.index(edge) ]
-
-
-
 
     return edges_in_tree
 
