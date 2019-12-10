@@ -7,12 +7,12 @@ from functions.graph_operations import *
 os.system("cls") # used to clear the console on windows machines
 
 
-#File = input(' Input name of file that cotians the graph. :')
+File = input(' Input name of file that cotians the graph. :')
 
 
 
 
-Graph = get_graph('G4') 
+Graph = get_graph('G'+File) 
 
 starting_point = int( input(f' {Graph[0]} \n Pick a vertex. :')) 
 

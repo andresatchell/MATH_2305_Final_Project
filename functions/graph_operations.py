@@ -11,14 +11,10 @@ def incident_edges (Graph, Tree):
 
                 if (vertex_a in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree):     # and (( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) != str(edge)   ))  :
                     edges_in_tree.append(edge)
-    
-    
-    
         
     for edge in edges_in_tree:
 
         for vertex_a in Tree[0]:
-
             for vertex_b in Tree[0]:
 
                 if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
@@ -52,6 +48,7 @@ def min_cost_incident_edge(Graph,Tree):
             min_e = i
 
     return min_e 
+    
 
 def total_cost_of_tree(Graph, Tree):
 
