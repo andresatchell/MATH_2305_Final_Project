@@ -21,8 +21,6 @@ T = ([0, 2, 1, 9, 4, 5, 6, 3, 11, 7, 8, 10], [(0, 2), (1, 2), (2, 9), (1, 4), (4
 
 Graph = get_graph('FinalG') 
 
-print (GE(Graph, T))
-
 
 #starting_point = int( input(f' {Graph[0]} \n Pick a vertex. :')) 
 starting_point = 3

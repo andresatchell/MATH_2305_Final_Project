@@ -1,13 +1,13 @@
-def GE(G, T):
-    good_e = []
-    es = incident_edges(G, T)
-    for e in es:
-        if (e[0] not in T[0]    )  or   (   e[1] not in T[0]  ):
-            good_e.append(e)
+def good_edges(Graph, Tree):
+    ''' '''
 
-    return good_e
+    good_edges = []
+    all_edges = incident_edges(Graph, Tree)
+    for e in all_edges:
+        if (e[0] not in Tree[0]    )  or   (   e[1] not in Tree[0]  ):
+            good_edges.append(e)
 
-
+    return good_edges
 
 
 def incident_edges (Graph, Tree):
@@ -20,39 +20,6 @@ def incident_edges (Graph, Tree):
         for vertex_a in Tree[0]:
             if (vertex_a in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree) :     # and (( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) != str(edge)   ))  :
                 edges_in_tree.append(edge)
-
-
-
-    '''
-
-    for edge in edges_in_tree:
-
-
-
-
-
-        for vertex_a in Tree[0]:
-            for vertex_b in Tree[0]:
-
-                if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
-
-                    #If there is a edge that is in the working tree that has two of the vertices in it then remove it,
-                    #by doing so we remove the posibility of have a circle in out tree
-                    del edges_in_tree[ edges_in_tree.index(edge) ]
-
-    '''
-
-    '''
-    #Dirty Hot Fix
-    for edge in edges_in_tree:
-        for vertex_a in Tree[0]:
-            for vertex_b in Tree[0]:
-
-                if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
-                    del edges_in_tree[ edges_in_tree.index(edge) ]
-    '''
-
-
 
     return edges_in_tree
 
@@ -70,7 +37,7 @@ def initialize_tree (starting_vertex):
 def min_cost_incident_edge(Graph,Tree):
     ''' Returns the edge with the minimum cost or shortest distance simple find the minimum in an array'''
 
-    all_posible_new_edges = GE(Graph,Tree)
+    all_posible_new_edges = good_edges(Graph,Tree)
 
     if (len(all_posible_new_edges) != 0):
         min_e = all_posible_new_edges[0]
@@ -78,14 +45,12 @@ def min_cost_incident_edge(Graph,Tree):
     else:
         min_e = 'No More edges'
     
-    
     for i in all_posible_new_edges:
 
         if ((Graph[1][min_e] >= Graph[1][i])):
             min_e = i
 
     return min_e 
-    
 
 
 def total_cost_of_tree(Graph, Tree):
