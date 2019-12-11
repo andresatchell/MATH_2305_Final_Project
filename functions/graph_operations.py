@@ -71,8 +71,14 @@ def min_cost_incident_edge(Graph,Tree):
     ''' Returns the edge with the minimum cost or shortest distance simple find the minimum in an array'''
 
     all_posible_new_edges = GE(Graph,Tree)
-    min_e = all_posible_new_edges[0]
 
+    if (len(all_posible_new_edges) != 0):
+        min_e = all_posible_new_edges[0]
+
+    else:
+        min_e = 'No More edges'
+    
+    
     for i in all_posible_new_edges:
 
         if ((Graph[1][min_e] >= Graph[1][i])):
@@ -80,6 +86,7 @@ def min_cost_incident_edge(Graph,Tree):
 
     return min_e 
     
+
 
 def total_cost_of_tree(Graph, Tree):
 

@@ -18,7 +18,7 @@ def Prims(Graph, Starting_point):
     
     
     )
-    while (avalible_paths.  ):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
+    while (len(avalible_paths) != 0 ):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
 
 
         avalible_paths = GE(Graph, Tree)          
@@ -28,17 +28,13 @@ def Prims(Graph, Starting_point):
        
         for path in avalible_paths:
             for vertex in path:
-                if (len(avalible_paths) != 0):
-                    if ( path == path_to_take) and (vertex not in Tree[0]) :  #Only allows for the smallest path to be taken and adds that path/edge to our working tree  
-                        Tree[1].append(path)
-                        Tree[0].append(vertex)
-                        print (len(avalible_paths))
-                        print (Tree)
 
-                        avalible_paths = GE(Graph, Tree)
-                        a = len(avalible_paths)          
-                        path_to_take = min_cost_incident_edge(Graph, Tree)
+                if (vertex not in Tree[0]) and ( path == path_to_take) :  #Only allows for the smallest path to be taken and adds that path/edge to our working tree  
+                    Tree[1].append(path)
+                    Tree[0].append(vertex)
+                    print (Tree)
+                    path_to_take = min_cost_incident_edge(Graph, Tree)
+        avalible_paths = GE(Graph, Tree)
 
-            print(avalible_paths)
     return Tree
 
