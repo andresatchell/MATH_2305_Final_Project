@@ -1,4 +1,4 @@
-from functions.graph_operations import min_cost_incident_edge, incident_edges, initialize_tree, cost
+from functions.graph_operations import min_cost_incident_edge, incident_edges, initialize_tree, cost, GE
 
 
 def Prims(Graph, Starting_point):
@@ -8,37 +8,37 @@ def Prims(Graph, Starting_point):
     '''
 
     Tree = initialize_tree(Starting_point)
-    avalible_paths = incident_edges(Graph, Tree)          
-    path_to_take = min_cost_incident_edge(Graph, Tree)
 
 
     #while (len(Tree[0]) = len(Graph[0])):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
-    while (len(Tree[0]) < len (Graph[0])):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
+   
+    avalible_paths = GE(Graph, Tree)
+
+    a = len(avalible_paths
     
-        print (f"{len(Tree[0])}, {len(Graph[0])}   ")
-        for path in avalible_paths:                                 #Checks all avalible plaths
+    
+    )
+    while (avalible_paths.  ):                          #while the length of the tree's vertices is not the same lenght of the graph's vertices than do the operation 
 
-            for vertex_a in Tree[0]:
 
-                for vertex_b in Tree[0]:                        
+        avalible_paths = GE(Graph, Tree)          
+        path_to_take = min_cost_incident_edge(Graph, Tree)
 
-                    if ( path == min_cost_incident_edge(Graph, Tree)):     #and ( str(path) != '(' + str (vertex_a) + ', ' + str(vertex_b) + ')' ):     #Only allows for the smallest path to be taken and adds that path/edge to our working tree  
+
+       
+        for path in avalible_paths:
+            for vertex in path:
+                if (len(avalible_paths) != 0):
+                    if ( path == path_to_take) and (vertex not in Tree[0]) :  #Only allows for the smallest path to be taken and adds that path/edge to our working tree  
                         Tree[1].append(path)
-                        
-        
-            for edge in Tree[1]:                                #Runs through all edges in out woring tree 
-
-                for vertice in edge:                            #And vertices in those edges
-
-                    if vertice not in Tree[0]:                  #And adds the vertex if it isnt in out working tree. 
-                        Tree[0].append(vertice)
-                        avalible_paths = incident_edges(Graph, Tree)          
-                        #path_to_take = min_cost_incident_edge(Graph, Tree)  
+                        Tree[0].append(vertex)
+                        print (len(avalible_paths))
                         print (Tree)
-                        print (f"{len(Tree[0])}, {len(Graph[0])}   ")
 
+                        avalible_paths = GE(Graph, Tree)
+                        a = len(avalible_paths)          
+                        path_to_take = min_cost_incident_edge(Graph, Tree)
 
-
-
+            print(avalible_paths)
     return Tree
 
