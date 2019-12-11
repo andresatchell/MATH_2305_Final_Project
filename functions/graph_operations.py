@@ -1,10 +1,10 @@
 def good_edges(Graph, Tree):
-    ''' '''
+    ''' Returns a list with all avalible edges that will not yeild a cycle edge/path '''
 
     good_edges = []
     all_edges = incident_edges(Graph, Tree)
     for e in all_edges:
-        if (e[0] not in Tree[0]    )  or   (   e[1] not in Tree[0]  ):
+        if ( e[0] not in Tree[0] )  or   (ve[1] not in Tree[0]  ):
             good_edges.append(e)
 
     return good_edges
@@ -57,7 +57,7 @@ def total_cost_of_tree(Graph, Tree):
 
     total_cost_of_tree = 0
  
-    for e in range(0, len( Tree[1] ) ):                             #Itterating through all the edges in the working tree.
+    for e in range(0, len( Tree[1] ) ):  #Itterating through all the edges in the working tree.
         total_cost_of_tree = total_cost_of_tree + cost(Graph, Tree[1][e] )
         
     return total_cost_of_tree
