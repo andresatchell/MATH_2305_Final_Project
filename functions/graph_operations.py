@@ -4,7 +4,7 @@ def good_edges(Graph, Tree):
     good_edges = []
     all_edges = incident_edges(Graph, Tree)
     for e in all_edges:
-        if ( e[0] not in Tree[0] )  or   (ve[1] not in Tree[0]  ):
+        if ( e[0] not in Tree[0] )  or   (e[1] not in Tree[0]  ):
             good_edges.append(e)
 
     return good_edges
