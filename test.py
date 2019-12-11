@@ -7,40 +7,30 @@ from functions.graph_operations import *
 os.system("cls") # used to clear the console on windows machines
 
 
-File = input(' Input name of file that cotians the graph. :')
+#File = input(' Input name of file that cotians the graph. :')
 
 
 
 
-Graph = get_graph('G'+File) 
+Graph = get_graph('FinalG') 
 
-starting_point = int( input(f' {Graph[0]} \n Pick a vertex. :')) 
+T = ([0, 2, 1, 9, 4, 5, 6, 3, 11, 7, 8], [(0, 2), (1, 2), (2, 9), (1, 4), (4, 5), (2, 6), (4, 3), (3, 11), (5, 7), (7, 8)])
 
-minimum_spanning_tree = Prims(Graph, starting_point)
-cost_of_tree = total_cost_of_tree(Graph, minimum_spanning_tree)
 
-vertices, edges = minimum_spanning_tree
-
-T =  ([0, 1, 4], [(0, 1), (1, 4)])
-
-print (f'''\n The minimun spanining tree 
- Vetices: {vertices}, {len(vertices)}
- Edges : {edges}, {len(edges)}
- and the total cost of the tree {total_cost_of_tree(Graph, minimum_spanning_tree)} 
+a = incident_edges(Graph, T)
+c = min_cost_incident_edge(Graph, T)
 
 
 
+b=[]
 
- ********* prims output **********
- {minimum_spanning_tree}
-
-******** incident_edges **********
-
-T =   {T}
+for  i in a:
+    b.append(cost(Graph, i))
 
 
-avalible paths to get last vertex. 
-{incident_edges(Graph, T)}
+print (T)
+print (a)
+print (b)
+print (c)
 
 
- ''')

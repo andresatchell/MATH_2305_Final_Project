@@ -1,3 +1,14 @@
+def GE(G, T):
+    good_e = []
+    es = incident_edges(G, T)
+    for e in es:
+        if (e[0] not in T[0]    )  or   (   e[1] not in T[0]  ):
+            good_e.append(e)
+
+    return good_e
+
+
+
 
 def incident_edges (Graph, Tree):
     '''Returns all posible edges that are not in the tree. Essentially give you next avalible path to the next vertex. '''
@@ -7,12 +18,18 @@ def incident_edges (Graph, Tree):
     for edge in Graph[1]:
 
         for vertex_a in Tree[0]:
-            for vertex_b in Tree[0]:
+            if (vertex_a in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree) :     # and (( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) != str(edge)   ))  :
+                edges_in_tree.append(edge)
 
-                if (vertex_a in edge) and (edge not in Tree[1]) and (edge not in edges_in_tree):     # and (( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) != str(edge)   ))  :
-                    edges_in_tree.append(edge)
-        
+
+
+    '''
+
     for edge in edges_in_tree:
+
+
+
+
 
         for vertex_a in Tree[0]:
             for vertex_b in Tree[0]:
@@ -22,6 +39,20 @@ def incident_edges (Graph, Tree):
                     #If there is a edge that is in the working tree that has two of the vertices in it then remove it,
                     #by doing so we remove the posibility of have a circle in out tree
                     del edges_in_tree[ edges_in_tree.index(edge) ]
+
+    '''
+
+    '''
+    #Dirty Hot Fix
+    for edge in edges_in_tree:
+        for vertex_a in Tree[0]:
+            for vertex_b in Tree[0]:
+
+                if  ( ( '('+str(vertex_a) + ', ' + str(vertex_b)+')' ) == str(edge)   ): #Dirty fix of formating issues but got it working.
+                    del edges_in_tree[ edges_in_tree.index(edge) ]
+    '''
+
+
 
     return edges_in_tree
 
@@ -39,7 +70,7 @@ def initialize_tree (starting_vertex):
 def min_cost_incident_edge(Graph,Tree):
     ''' Returns the edge with the minimum cost or shortest distance simple find the minimum in an array'''
 
-    all_posible_new_edges = incident_edges(Graph,Tree)
+    all_posible_new_edges = GE(Graph,Tree)
     min_e = all_posible_new_edges[0]
 
     for i in all_posible_new_edges:
